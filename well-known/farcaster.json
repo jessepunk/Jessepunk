@@ -1,8 +1,8 @@
 {
   "name": "JessePunk Airdrop",
   "description": "Cyberpunk-style mini app for the JessePunk NFT airdrop.",
-  "icon": "https://i.ibb.co/j6FX9f7/jessepunk.jpg",
-  "homeUrl": "https://https://jessepunk.vercel.app",
+  "icon": "https://raw.githubusercontent.com/jessepunk/Jessepunk/main/jessepunk-logo.png",
+  "homeUrl": "https://jessepunk.vercel.app",
   "app": {},
   "webhooks": {}
 }
