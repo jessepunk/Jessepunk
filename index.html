@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JessePunk Airdrop</title>
 
-  <!-- Farcaster Mini App -->
   <meta name="fc:frame" content="vNext" />
 
   <style>
@@ -15,65 +14,51 @@
       background: black;
       color: white;
       font-family: "Arial", sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
       text-align: center;
     }
 
-    /* Animated background grid */
+    /* GRID BACKGROUND */
     @keyframes gridMove {
       0% { background-position: 0 0; }
       100% { background-position: 0 1000px; }
     }
-
     body::before {
       content: "";
-      position: absolute;
+      position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
+      z-index: -1;
       background-image:
         linear-gradient(rgba(255,0,122,0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,0,122,0.1) 1px, transparent 1px);
       background-size: 40px 40px;
       animation: gridMove 8s linear infinite;
-      z-index: -1;
     }
 
-    /* Floating animation */
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-14px); }
-      100% { transform: translateY(0px); }
-    }
-
+    /* CARD */
     .card {
-      background: #0f0f0f;
-      padding: 30px;
+      background: #0F0F0F;
       width: 85%;
       max-width: 420px;
+      margin: 40px auto 20px;
+      padding: 30px;
       border-radius: 22px;
       border: 2px solid #2b2b2b;
       box-shadow: 0 0 25px rgba(255,0,122,0.4);
-      animation: float 3s ease-in-out infinite;
     }
 
     img {
-      width: 160px;
-      border-radius: 14px;
-      margin-bottom: 20px;
+      width: 170px;
+      border-radius: 15px;
+      margin-bottom: 15px;
       box-shadow: 0 0 20px rgba(255,0,122,0.7);
-      animation: float 4s ease-in-out infinite;
     }
 
     h2 {
-      margin: 0;
+      color: #ff007a;
+      text-shadow: 0 0 10px rgba(255,0,122,0.7);
       font-size: 28px;
       font-weight: 900;
-      color: #ff007a;
-      text-shadow: 0 0 10px rgba(255,0,122,0.8);
     }
 
     .btn {
@@ -93,17 +78,43 @@
       background: transparent;
       border: 2px solid #ff007a;
       color: #ff007a;
-      box-shadow: none;
     }
 
-    #countdown {
-      margin-top: 15px;
+    .btn.blue {
+      background: #007AFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* SECTIONS */
+    .section {
+      width: 90%;
+      max-width: 480px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #111;
+      border-radius: 18px;
+      border: 1px solid #333;
+      box-shadow: 0 0 10px rgba(255,0,122,0.2);
+      text-align: left;
+    }
+
+    .section h3 {
       color: #ff007a;
-      font-weight: bold;
-      opacity: 0.8;
+      margin-bottom: 10px;
     }
 
-    /* Modal */
+    .social-links a {
+      color: #00aaff;
+      display: block;
+      margin: 5px 0;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    /* MODAL */
     #modal {
       position: fixed;
       top: 0; left: 0;
@@ -135,7 +146,6 @@
       display: inline-block;
     }
 
-    /* Spinner */
     .spinner {
       border: 5px solid #333;
       border-top: 5px solid #ff007a;
@@ -149,55 +159,91 @@
     @keyframes spin {
       100% { transform: rotate(360deg); }
     }
+
   </style>
 </head>
 
 <body>
 
+  <!-- MAIN CARD -->
   <div class="card">
-    <!-- FIXED LOGO -->
     <img src="jessepunk-logo.png" alt="JessePunk" />
 
     <h2>JessePunk Airdrop</h2>
     <p>Legendary drop coming soon on Base.</p>
+    <p style="color:#ff007a; font-weight:bold;">Launching soon...</p>
 
-    <div id="countdown">Launching soon...</div>
-
-    <!-- Buttons -->
-    <a class="btn" href="#" onclick="showModal()">Check Eligibility</a>
-
+    <a class="btn" onclick="showModal()">Check Eligibility</a>
     <a class="btn secondary">Connect Wallet (Coming Soon)</a>
 
-    <!-- Mint Button -->
-    <a class="btn" 
+    <a class="btn blue" 
        href="https://opensea.io/collection/jessepunk-legends" 
-       target="_blank"
-       style="background:#007aff;display:flex;align-items:center;justify-content:center;gap:10px;">
-
-       <img src="https://static.opensea.io/general/OpenSea-Full-Logo.png"
-            alt="OpenSea"
-            style="width:26px;height:26px;border-radius:4px;">
-
+       target="_blank">
+       <img src="https://static.opensea.io/general/OpenSea-Full-Logo.png" style="width:26px;">
        Mint Your NFT Here
     </a>
   </div>
 
-  <!-- Modal -->
+  <!-- ABOUT SECTION -->
+  <div class="section">
+    <h3>About JessePunk</h3>
+    <p>JessePunk is a legendary pixel-art NFT collection built for culture, identity, and Web3 creativity. Each Punk carries its own aura — fire, light, shadow, or divine energy — merging pixel art with modern digital storytelling.</p>
+  </div>
+
+  <!-- AIRDROP DETAILS -->
+  <div class="section">
+    <h3>Airdrop Details</h3>
+    <p>🔥 <b>1.5 Million</b> tokens allocated to free-mint JessePunk holders.</p>
+    <p>🔥 <b>4.5 Million</b> tokens allocated to the Legendary Round (200 NFTs FCFS).</p>
+    <p>⚠️ You must <b>not list</b> your NFT to stay eligible.</p>
+  </div>
+
+  <!-- MINT INFORMATION -->
+  <div class="section">
+    <h3>Mint Information</h3>
+    <p>✔ <b>Supply:</b> 200 Legendary NFTs</p>
+    <p>✔ <b>Price:</b> FCFS (First Come, First Serve)</p>
+    <p>✔ <b>Mint:</b> Live on OpenSea</p>
+    <p><a style="color:#007aff" href="https://opensea.io/collection/jessepunk-legends">OpenSea Collection →</a></p>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="section">
+    <h3>Roadmap</h3>
+    <p>📌 <b>Phase 1:</b> Free Mint + Legendary Round</p>
+    <p>📌 <b>Phase 2:</b> Token Launch</p>
+    <p>📌 <b>Phase 3:</b> Staking & Rewards</p>
+    <p>📌 <b>Phase 4:</b> Airdrop Claim</p>
+    <p>📌 <b>Phase 5:</b> Community Quests</p>
+  </div>
+
+  <!-- SOCIAL LINKS -->
+  <div class="section social-links">
+    <h3>Social Links</h3>
+    <a href="https://x.com/jessepunk276205" target="_blank">Twitter / X</a>
+    <a href="https://opensea.io/collection/jessepunk-legends" target="_blank">OpenSea</a>
+  </div>
+
+  <!-- FOUNDER MESSAGE -->
+  <div class="section">
+    <h3>Founder Message</h3>
+    <p>"Thank you for supporting JessePunk. This project came from passion, struggle, and dedication. The best is yet to come — stay legendary." 💖</p>
+  </div>
+
+  <!-- MODAL -->
   <div id="modal">
     <div id="modalBox">
       <div class="spinner"></div>
       <h3 style="color:#ff007a;margin-top:18px;">System Offline</h3>
-      <p style="opacity:0.7;">Eligibility checking will be live after full launch.</p>
+      <p>Eligibility checking will be live after full launch.</p>
       <div id="close" onclick="hideModal()">Close</div>
     </div>
   </div>
 
-  <!-- FIXED JS -->
   <script>
     function showModal() {
       document.getElementById("modal").style.display = "flex";
     }
-
     function hideModal() {
       document.getElementById("modal").style.display = "none";
     }
