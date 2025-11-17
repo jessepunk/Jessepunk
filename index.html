@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JessePunk Airdrop</title>
+
+  <!-- Farcaster Mini App -->
+  <meta name="fc:frame" content="vNext" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
+      font-family: "Arial", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Animated background grid */
+    @keyframes gridMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 1000px; }
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image:
+        linear-gradient(rgba(255,0,122,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,0,122,0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridMove 8s linear infinite;
+      z-index: -1;
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-14px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .card {
+      background: #0f0f0f;
+      padding: 30px;
+      width: 85%;
+      max-width: 420px;
+      border-radius: 22px;
+      border: 2px solid #2b2b2b;
+      box-shadow: 0 0 25px rgba(255,0,122,0.4);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    img {
+      width: 160px;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(255,0,122,0.7);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 900;
+      color: #ff007a;
+      text-shadow: 0 0 10px rgba(255,0,122,0.8);
+    }
+
+    .btn {
+      display: block;
+      padding: 14px;
+      margin-top: 18px;
+      border-radius: 12px;
+      background: #ff007a;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      font-size: 18px;
+      box-shadow: 0 0 14px rgba(255,0,122,0.7);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid #ff007a;
+      color: #ff007a;
+      box-shadow: none;
+    }
+
+    #countdown {
+      margin-top: 15px;
+      color: #ff007a;
+      font-weight: bold;
+      opacity: 0.8;
+    }
+
+    /* Modal */
+    #modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modalBox {
+      background: #111;
+      padding: 25px 35px;
+      border-radius: 18px;
+      border: 2px solid #ff007a;
+      text-align: center;
+      width: 80%;
+      max-width: 320px;
+    }
+
+    #close {
+      margin-top: 18px;
+      padding: 10px 20px;
+      background: #ff007a;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      display: inline-block;
+    }
+
+    /* Spinner */
+    .spinner {
+      border: 5px solid #333;
+      border-top: 5px solid #ff007a;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      margin: auto;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <img src="https://i.ibb.co/j6FX9f7/jessepunk.jpg" alt="JessePunk" />
+
+    <h2>JessePunk Airdrop</h2>
+    <p>Legendary drop coming soon on Base.</p>
+
+    <div id="countdown">Launching soon...</div>
+
+    <!-- Buttons -->
+    <a class="btn" href="#" onclick="showModal()">Check Eligibility</a>
+
+    <a class="btn secondary">Connect Wallet (Coming Soon)</a>
+
+    <!-- Mint on OpenSea Button -->
+    <a class="btn" 
+       href="https://opensea.io/collection/jessepunk-legends" 
+       target="_blank"
+       style="background:#007aff;display:flex;align-items:center;justify-content:center;gap:10px;">
+
+       <img src="https://static.opensea.io/general/OpenSea-Full-Logo.png"
+            alt="OpenSea"
+            style="width:26px;height:26px;border-radius:4px;">
+
+       Mint Your NFT Here
+    </a>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal">
+    <div id="modalBox">
+      <div class="spinner"></div>
+      <h3 style="color:#ff007a;margin-top:18px;">System Offline</h3>
+      <p style="opacity:0.7;">Eligibility checking will be live after full launch.</p>
+      <div id="close" onclick="hideModal()">Close</div>
+    </div>
+  </div>
+
+  <script>
+    function showModal() {
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function hideModal() {
+      document.getElementElementById("modal").style.display = "none";
+    }
+  </script>
+
+</body>
+  </html>
